@@ -46,7 +46,7 @@ For this part of the assignment, you can ignore the missing values in the datase
 
     1.- Calculate the total number of steps taken per day
 
-```{r}
+```{r Histogram 1}
 tab1<-tapply(data$steps,data$date,function(x) sum(x,na.rm=TRUE))
 hist(tab1, breaks = 15, col="blue",xlab="Number of Steps", main="Daily Steps")
 ```
@@ -62,7 +62,7 @@ prom
 mediana<- median(tab1,na.rm=TRUE)
 mediana
 
-#Resumen Estadistico de los datos.
+#Statistical summary of the data (Resumen Estadistico de los datos).
 summary(tab1)
 ```
 
@@ -70,7 +70,7 @@ summary(tab1)
     
     1.- Time series plot (i.e. type = “l” ) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
-```{r}
+```{r Plot Step Pattern - Time Series}
 patronpaso <- aggregate(data$steps ~ data$interval, data, FUN=mean, na.rm=TRUE)
 names(patronpaso) <- c("interval","average_steps")
 
@@ -125,7 +125,7 @@ steps_new <- data_new %>%
   print
 ```
 
-```{r}
+```{r Histogram of Steps per Day}
 ggplot(steps_new, aes(x = steps)) +
   geom_histogram(fill = "blue", binwidth = 500) +
   labs(title = "Histogram of Steps per day - including NA", x = "Steps per day", y = "Frequency")
@@ -143,7 +143,7 @@ results
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-```{r}
+```{r Weekday - Weekend}
 tipo_dia <- function(date) {
   if (weekdays(as.Date(date)) %in% c("sabado", "domingo")) {
     "Weekend"

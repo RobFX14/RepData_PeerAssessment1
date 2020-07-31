@@ -96,7 +96,7 @@ tab1<-tapply(data$steps,data$date,function(x) sum(x,na.rm=TRUE))
 hist(tab1, breaks = 15, col="blue",xlab="Number of Steps", main="Daily Steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram 1-1.png)<!-- -->
 
     2.- Calculate and report the mean and median total number of steps taken per day
     
@@ -122,7 +122,7 @@ mediana
 ```
 
 ```r
-#Resumen Estadistico de los datos.
+#Statistical summary of the data (Resumen Estadistico de los datos).
 summary(tab1)
 ```
 
@@ -146,7 +146,7 @@ plot(patronpaso$average_steps ~ patronpaso$interval, col="red",
        main = "Time Series Plot", lwd = 1)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-6-1.png)<!-- -->
+![](PA1_template_files/figure-html/Plot Step Pattern - Time Series-1.png)<!-- -->
 
 
     2.- Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -252,7 +252,7 @@ ggplot(steps_new, aes(x = steps)) +
   labs(title = "Histogram of Steps per day - including NA", x = "Steps per day", y = "Frequency")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](PA1_template_files/figure-html/Histogram of Steps per Day-1.png)<!-- -->
 
 ### Calculate the mean and median steps with the filled in values:
 
@@ -289,4 +289,4 @@ ggplot(promedios, aes(interval, steps,color=day)) + geom_line() + facet_grid(day
     xlab("5-minute interval") + ylab("Number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-14-1.png)<!-- -->
+![](PA1_template_files/figure-html/Weekday - Weekend-1.png)<!-- -->
